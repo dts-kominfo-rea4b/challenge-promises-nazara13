@@ -5,16 +5,11 @@ const promiseOutput = async (ekspresipenonton) => {
   try {
     const x = await promiseTheaterIXX();
     const y = await promiseTheaterVGC();
-    const semuaFilm = [...x, ...y];
-
-    const arrEkspresi = semuaFilm.filter((cd) => cd.hasil === ekspresipenonton);
-    let bykEkspresi = `${ekspresipenonton} : ${arrEkspresi.length}`;
-
-    return bykEkspresi;
+    const jumlahEmosi = x.concat(y)
+    return jumlahEmosi.filter(el => el.hasil === ekspresipenonton).length
   } catch(err){
     console.log(err);
   }
-
 }
 module.exports = {
   promiseOutput,
